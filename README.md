@@ -2,6 +2,12 @@
 
 A mobile-first React application for controlling medical simulation scenarios. This prototype allows facilitators to navigate through scenario events with an intuitive, touch-optimized interface.
 
+## Live Preview
+
+🌐 **[View Live Demo](https://realiti-mobile-controller.gayankalhara.com)**
+
+![REALITi Mobile Controller Preview](preview.png)
+
 ## Features
 
 - **Scenario Overview**: Display scenario name and description
