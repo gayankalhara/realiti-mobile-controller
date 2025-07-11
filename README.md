@@ -22,6 +22,7 @@ A mobile-first React application for controlling medical simulation scenarios. T
    ```bash
    npm run dev
    ```
+   The local development server will run at `http://localhost:5173` by default, or as specified in the terminal output.
 
 3. **Build for production**:
    ```bash
@@ -78,6 +79,19 @@ Built with:
 - Mobile-first responsive design
 - Accessibility considerations (focus states, reduced motion support)
 
-## Development Process & Design Decisions
+## AI Development Process
 
-his project was developed with the help of Gemini 2.5 Pro and Claude Sonnet 4. I used the original color scheme of the REALITi application and aimed to maintain the same aesthetics. 
+This project was developed with the assistance of AI tools:
+
+### AI Tool Usage
+- **Gemini 2.5 Pro**: Used to Evaluate the Requirements:
+   - I used this mainly to evaluate the requirements, come up with design ideas, and double-check if my approach matched the expectations and branding guidelines. It also helped provide some initial visual direction.
+
+
+- **Claude Sonnet 4**: Primary development assistant for:
+  - This was my main assistant throughout the actual development. I used it to structure component architecture, implement React logic, handle responsive CSS styling, and resolve TypeScript errors. It also helped with optimizing the code and sticking to best practices.
+
+### Design Decisions
+- I went with a stacked layout because it’s much easier to follow and navigate between different sections without losing context. When navigating between events, the view automatically scrolls down to bring the currently active event into focus, which makes the user experience a bit smoother.
+- In the header section, I included an expand icon that shows more details on click. It’s hidden by default to keep the interface clean and distraction-free.
+- The overall layout was built with a mobile-first approach in mind. While it’s fully functional on smaller screens, it can also be extended easily to support tablets and larger displays.
