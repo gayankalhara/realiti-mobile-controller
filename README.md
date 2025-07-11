@@ -99,5 +99,24 @@ This project was developed with the assistance of AI tools:
 
 ### Design Decisions
 - I went with a stacked layout because it’s much easier to follow and navigate between different sections without losing context. When navigating between events, the view automatically scrolls down to bring the currently active event into focus, which makes the user experience a bit smoother.
+
+
 - In the header section, I included an expand icon that shows more details on click. It’s hidden by default to keep the interface clean and distraction-free.
+
+
 - The overall layout was built with a mobile-first approach in mind. While it’s fully functional on smaller screens, it can also be extended easily to support tablets and larger displays.
+
+
+- I chose to display only the five core vital signs commonly used in initial patient assessments:
+  - HR (Heart Rate)
+  - BP (Blood Pressure)
+  - SpO₂ (Oxygen Saturation)
+  - RR (Respiratory Rate)
+  - Temp (Temperature)
+
+
+  - The above decision was based on the following reasons:
+    - **Mobile Screen Space:** Limited screen real estate requires focusing on the most critical metrics.
+    - **Clinical Relevance:** These five parameters are considered standard vital signs for initial patient evaluation.
+    - **Cognitive Load:** Displaying too many values at once could overwhelm facilitators during fast-paced training.
+    - **At-a-Glance Assessment:** These metrics offer a quick overview of patient stability, allowing for faster decision-making.
