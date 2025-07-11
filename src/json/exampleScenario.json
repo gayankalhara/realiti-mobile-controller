@@ -1,0 +1,1094 @@
+{
+    "scenarioId": "A7F2C851-9483-4D6B-B291-7E3A5F8C9D42",
+    "scenarioType": "Vital Signs",
+    "scenarioVersion": 0,
+    "scenarioName": "Post-Surgical Sepsis with Internal Hemorrhage",
+    "scenarioTime": 600,
+    "isDemo": false,
+    "isALSILegacy": false,
+    "scenarioMonitorType": 1,
+
+    "intended_participants": [
+        "Senior nursing staff with post-operative experience",
+        "Junior medical officers and registrars",
+        "Critical care nurses"
+    ],
+    "purpose": "To develop skills in recognizing and managing complex post-operative complications including sepsis and internal bleeding, practicing escalation protocols and multi-system shock management in a deteriorating patient.",
+    "scenario_overview": "A 67-year-old patient, day 5 post bowel resection, presents with worsening sepsis and newly developed internal bleeding. Participants must recognize the dual pathology, implement appropriate resuscitation measures, and coordinate urgent medical and surgical interventions.",
+    "learning_objectives": [
+        "Identify signs of sepsis and internal bleeding in post-operative patients",
+        "Demonstrate appropriate fluid resuscitation and vasopressor management",
+        "Perform systematic assessment and monitoring of shocked patients",
+        "Execute timely escalation to senior medical and surgical teams"
+    ],
+    "required_simulation_tools": [
+        "Adult patient simulator with vital signs monitoring",
+        "IV access equipment and fluid warmers",
+        "Blood sampling equipment for laboratory tests",
+        "Oxygen delivery devices",
+        "Urinary catheter and monitoring equipment"
+    ],
+    "debriefing_points": [
+        "Recognition of sepsis criteria and early warning signs",
+        "Differentiation between septic and hemorrhagic shock",
+        "Fluid resuscitation strategies in complex shock states",
+        "Communication and escalation during medical emergencies"
+    ],
+    "handover": {
+        "time_of_day": "1430h",
+        "handover_reason": "Afternoon shift handover with deteriorating patient",
+        "confederate_role": "Day shift registered nurse",
+        "what_is_about_to_happen": "Patient will show signs of worsening sepsis with new onset tachycardia and hypotension suggesting internal bleeding",
+        "SBAR": {
+            "situation": "Mr. Johnson, day 5 post bowel resection, has become increasingly unwell with fever and now showing signs of hemodynamic instability.",
+            "background": "67-year-old male underwent elective sigmoid colectomy 5 days ago for diverticular disease. Has been febrile for 48 hours with rising inflammatory markers.",
+            "assessment": "Currently febrile 38.8°C, heart rate 110 bpm, blood pressure 95/60 mmHg, appears pale and clammy with reduced urine output over last 4 hours.",
+            "recommendation": "Requires urgent medical review for possible sepsis and potential surgical complications. Consider blood tests, imaging, and fluid resuscitation."
+        }
+    },
+
+    "scenarioEvents": [
+        {
+            "description": "Initial presentation - Septic patient with early shock",
+            "monitorType": 0,
+            "trendTime": 0,
+            "jumpTime": 0,
+            "defibShock": false,
+            "defibDisarm": false,
+            "type": "ScenarioEvent",
+            "name": "Baseline Septic State",
+            "parameters": {
+                "hr": 110,
+                "bpSys": 95,
+                "bpDia": 60,
+                "spo2": 96,
+                "etco2": 32,
+                "respRate": 22,
+                "temp": 38.8,
+                "ecgWaveform": 9,
+                "bpWaveform": 0,
+                "spo2Waveform": 0,
+                "etco2Waveform": 0,
+                "ecgVisible": true,
+                "bpVisible": true,
+                "spo2Visible": true,
+                "etco2Visible": false,
+                "rrVisible": true,
+                "tempVisible": true,
+                "ventilated": false,
+                "spo2Attached": true
+            },
+            "relatedChecklist": [0],
+            "relatedLabs": [0]
+        },
+        {
+            "description": "Patient deterioration with worsening shock parameters",
+            "monitorType": 0,
+            "trendTime": 120,
+            "jumpTime": 0,
+            "defibShock": false,
+            "defibDisarm": false,
+            "type": "ScenarioEvent",
+            "name": "Worsening Shock",
+            "parameters": {
+                "hr": 125,
+                "bpSys": 85,
+                "bpDia": 50,
+                "spo2": 94,
+                "respRate": 26,
+                "temp": 39.2,
+                "bpWaveform": 3
+            },
+            "relatedChecklist": [1, 2],
+            "relatedLabs": [1]
+        },
+        {
+            "description": "Severe deterioration suggesting internal bleeding",
+            "monitorType": 0,
+            "trendTime": 180,
+            "jumpTime": 0,
+            "defibShock": false,
+            "defibDisarm": false,
+            "type": "ScenarioEvent",
+            "name": "Hemorrhagic Component",
+            "parameters": {
+                "hr": 140,
+                "bpSys": 75,
+                "bpDia": 45,
+                "spo2": 92,
+                "respRate": 28,
+                "temp": 38.5,
+                "bpWaveform": 3,
+                "spo2Waveform": 1
+            },
+            "relatedChecklist": [3, 4, 5],
+            "relatedLabs": [2]
+        },
+        {
+            "description": "Critical state requiring immediate intervention",
+            "monitorType": 0,
+            "trendTime": 120,
+            "jumpTime": 0,
+            "defibShock": false,
+            "defibDisarm": false,
+            "type": "ScenarioEvent",
+            "name": "Critical Shock",
+            "parameters": {
+                "hr": 150,
+                "bpSys": 65,
+                "bpDia": 40,
+                "spo2": 90,
+                "respRate": 32,
+                "temp": 38.0
+            },
+            "relatedChecklist": [6, 7, 8],
+            "relatedLabs": [3]
+        },
+        {
+            "description": "Response to appropriate resuscitation",
+            "monitorType": 0,
+            "trendTime": 120,
+            "jumpTime": 0,
+            "defibShock": false,
+            "defibDisarm": false,
+            "type": "ScenarioEvent",
+            "name": "Stabilization",
+            "parameters": {
+                "hr": 130,
+                "bpSys": 80,
+                "bpDia": 50,
+                "spo2": 95,
+                "respRate": 24,
+                "temp": 37.8,
+                "bpWaveform": 0,
+                "spo2Waveform": 0
+            },
+            "relatedChecklist": [9],
+            "relatedLabs": [4]
+        }
+    ],
+
+    "scenarioStory": {
+        "history": "67-year-old retired teacher with history of diverticular disease underwent elective sigmoid colectomy 5 days ago. Recovery initially progressed well until day 3 when he developed fever and malaise. Blood cultures were taken and antibiotics commenced.",
+        "course": "Patient has shown progressive deterioration over 48 hours with persistent fever, rising inflammatory markers, and now hemodynamic instability. Recent onset of tachycardia and hypotension with pale appearance suggests possible internal bleeding complicating the septic picture.",
+        "discussion": "This case highlights the complexity of post-operative complications where multiple pathologies can co-exist. Early recognition of sepsis combined with new hemorrhage requires prompt intervention with both antimicrobial therapy and hemorrhage control. The scenario emphasizes the importance of systematic assessment, appropriate monitoring, and timely escalation in deteriorating post-operative patients."
+    },
+
+    "patientInformation": {
+        "patientName": "Robert Johnson",
+        "patientSex": 1,
+        "patientAgeCategory": 0,
+        "patientAge": 67,
+        "patientAgeUnit": "years",
+        "patientHeight": 175,
+        "patientWeight": 78,
+        "patientCondition": "Post-operative sepsis with internal bleeding",
+        "patientAdmitted": 5,
+        "patientPhotoId": 87
+    },
+
+    "patient_actor_information": {
+        "character_background": {
+            "date_of_birth": "1957-03-22",
+            "occupation": "Retired high school teacher",
+            "marital_status": "Married with two adult children",
+            "support_system": "Wife and daughter frequently visit, very involved in care decisions",
+            "lifestyle": "Non-smoker, occasional social drinker, generally active but recent weight loss due to bowel problems"
+        },
+        "medical_history": {
+            "recent_procedures": "Sigmoid colectomy 5 days ago for recurrent diverticulitis, no previous major surgeries",
+            "current_concerns": "Increasing abdominal pain, feeling very unwell, tired and weak, concerned about not getting better"
+        },
+        "personality_and_demeanor": {
+            "general_demeanor": "Usually articulate and engaged but now appearing unwell, anxious about deterioration",
+            "communication_style": "Polite and cooperative, asks thoughtful questions about his condition",
+            "emotional_state": "Worried about complications, wants to understand what's happening to him"
+        },
+        "current_scenario_context": {
+            "current_state": "Feeling very unwell with abdominal pain, nausea, weakness, and awareness that something is seriously wrong",
+            "possible_questions_from_participants": {
+                "pain_and_symptoms": "Moderate to severe abdominal pain, especially around wound site, feeling nauseous and very tired, noticed less urine output",
+                "personal_information": "Lives with wife, enjoys reading and gardening, was looking forward to recovery to resume normal activities",
+                "medical_history": "Generally healthy before surgery, takes blood pressure medication, had some bowel problems for years before surgery"
+            }
+        },
+        "guidance_for_role_playing": {
+            "what_to_emphasize": "Gradual deterioration in responsiveness as scenario progresses, increasing weakness and concern about abdominal pain",
+            "how_to_respond_to_care": "Initially cooperative but becomes less responsive as shock worsens, grateful for interventions and reassurance"
+        }
+    },
+
+    "checklist": [
+        {
+            "value": 0,
+            "title": "Assess airway, breathing, and circulation",
+            "icon": 0,
+            "type": "Check"
+        },
+        {
+            "value": 0,
+            "title": "Obtain IV access and commence fluid resuscitation",
+            "icon": 0,
+            "type": "Check"
+        },
+        {
+            "value": 0,
+            "title": "Take blood samples for FBC, UE, LFT, coagulation studies",
+            "icon": 0,
+            "type": "Check"
+        },
+        {
+            "value": 0,
+            "title": "Escalate to medical team urgently",
+            "icon": 0,
+            "type": "Check"
+        },
+        {
+            "value": 0,
+            "title": "Insert urinary catheter and monitor output",
+            "icon": 0,
+            "type": "Check"
+        },
+        {
+            "value": 0,
+            "title": "Contact surgical team for possible bleeding",
+            "icon": 0,
+            "type": "Check"
+        },
+        {
+            "value": 0,
+            "title": "Prepare for potential blood transfusion",
+            "icon": 0,
+            "type": "Check"
+        },
+        {
+            "value": 0,
+            "title": "Consider vasopressor support",
+            "icon": 0,
+            "type": "Check"
+        },
+        {
+            "value": 0,
+            "title": "Arrange urgent CT abdomen/pelvis",
+            "icon": 0,
+            "type": "Check"
+        },
+        {
+            "value": 0,
+            "title": "Prepare for ICU transfer",
+            "icon": 0,
+            "type": "Check"
+        }
+    ],
+
+    "labs": [
+        {
+            "name": "Full Blood Count",
+            "description": "",
+            "parameters": [
+                {
+                    "name": "Haemoglobin",
+                    "absolute_min": 50,
+                    "absolute_max": 250,
+                    "healthy_min": 130,
+                    "healthy_max": 180,
+                    "value": 125,
+                    "interval": 1,
+                    "unit": "g/L",
+                    "abbreviation": "Hb"
+                },
+                {
+                    "name": "Red Blood Cells",
+                    "absolute_min": 2.0,
+                    "absolute_max": 8.0,
+                    "healthy_min": 4.5,
+                    "healthy_max": 6.5,
+                    "value": 4.2,
+                    "interval": 0.1,
+                    "unit": "x10¹²/L",
+                    "abbreviation": "RBC"
+                },
+                {
+                    "name": "Haematocrit (PCV)",
+                    "absolute_min": 0.2,
+                    "absolute_max": 0.7,
+                    "healthy_min": 0.4,
+                    "healthy_max": 0.55,
+                    "value": 0.38,
+                    "interval": 0.01,
+                    "unit": "",
+                    "abbreviation": "Hct"
+                },
+                {
+                    "name": "Mean Cell Volume",
+                    "absolute_min": 60,
+                    "absolute_max": 120,
+                    "healthy_min": 80,
+                    "healthy_max": 99,
+                    "value": 88,
+                    "interval": 1,
+                    "unit": "fL",
+                    "abbreviation": "MCV"
+                },
+                {
+                    "name": "Mean Cell Haemoglobin",
+                    "absolute_min": 15,
+                    "absolute_max": 40,
+                    "healthy_min": 27.0,
+                    "healthy_max": 32.0,
+                    "value": 29.5,
+                    "interval": 0.1,
+                    "unit": "pg",
+                    "abbreviation": "MCH"
+                },
+                {
+                    "name": "Red Cell Distribution Width",
+                    "absolute_min": 5.0,
+                    "absolute_max": 25.0,
+                    "healthy_min": 11.0,
+                    "healthy_max": 15.0,
+                    "value": 13.2,
+                    "interval": 0.1,
+                    "unit": "%",
+                    "abbreviation": "RDW"
+                },
+                {
+                    "name": "White Cell Count",
+                    "absolute_min": 1.0,
+                    "absolute_max": 50.0,
+                    "healthy_min": 4.0,
+                    "healthy_max": 11.0,
+                    "value": 16.8,
+                    "interval": 0.1,
+                    "unit": "x10⁹/L",
+                    "abbreviation": "WCC"
+                },
+                {
+                    "name": "Neutrophils",
+                    "absolute_min": 0.0,
+                    "absolute_max": 20.0,
+                    "healthy_min": 2.0,
+                    "healthy_max": 8.0,
+                    "value": 14.2,
+                    "interval": 0.1,
+                    "unit": "x10⁹/L",
+                    "abbreviation": "Neut"
+                },
+                {
+                    "name": "Lymphocytes",
+                    "absolute_min": 0.0,
+                    "absolute_max": 10.0,
+                    "healthy_min": 1.0,
+                    "healthy_max": 4.0,
+                    "value": 1.2,
+                    "interval": 0.1,
+                    "unit": "x10⁹/L",
+                    "abbreviation": "Lymph"
+                },
+                {
+                    "name": "Monocytes",
+                    "absolute_min": 0.0,
+                    "absolute_max": 2.0,
+                    "healthy_min": 0.0,
+                    "healthy_max": 1.1,
+                    "value": 1.0,
+                    "interval": 0.1,
+                    "unit": "x10⁹/L",
+                    "abbreviation": "Mono"
+                },
+                {
+                    "name": "Eosinophils",
+                    "absolute_min": 0.0,
+                    "absolute_max": 2.0,
+                    "healthy_min": 0.0,
+                    "healthy_max": 0.6,
+                    "value": 0.2,
+                    "interval": 0.05,
+                    "unit": "x10⁹/L",
+                    "abbreviation": "Eos"
+                },
+                {
+                    "name": "Basophils",
+                    "absolute_min": 0.0,
+                    "absolute_max": 1.0,
+                    "healthy_min": 0.0,
+                    "healthy_max": 0.3,
+                    "value": 0.2,
+                    "interval": 0.05,
+                    "unit": "x10⁹/L",
+                    "abbreviation": "Baso"
+                },
+                {
+                    "name": "Platelets",
+                    "absolute_min": 10,
+                    "absolute_max": 1000,
+                    "healthy_min": 150,
+                    "healthy_max": 450,
+                    "value": 180,
+                    "interval": 10,
+                    "unit": "x10⁹/L",
+                    "abbreviation": "Plt"
+                }
+            ]
+        },
+        {
+            "name": "Chem20",
+            "description": "",
+            "parameters": [
+                {
+                    "name": "Sodium",
+                    "absolute_min": 110,
+                    "absolute_max": 170,
+                    "healthy_min": 136,
+                    "healthy_max": 146,
+                    "value": 132,
+                    "interval": 1,
+                    "unit": "mmol/L",
+                    "abbreviation": "Na"
+                },
+                {
+                    "name": "Potassium",
+                    "absolute_min": 2.0,
+                    "absolute_max": 7.0,
+                    "healthy_min": 3.5,
+                    "healthy_max": 5.1,
+                    "value": 3.8,
+                    "interval": 0.1,
+                    "unit": "mmol/L",
+                    "abbreviation": "K"
+                },
+                {
+                    "name": "Chloride",
+                    "absolute_min": 70,
+                    "absolute_max": 130,
+                    "healthy_min": 95,
+                    "healthy_max": 110,
+                    "value": 98,
+                    "interval": 1,
+                    "unit": "mmol/L",
+                    "abbreviation": "Cl"
+                },
+                {
+                    "name": "Bicarbonate",
+                    "absolute_min": 10,
+                    "absolute_max": 40,
+                    "healthy_min": 22,
+                    "healthy_max": 28,
+                    "value": 20,
+                    "interval": 1,
+                    "unit": "mmol/L",
+                    "abbreviation": "HCO3"
+                },
+                {
+                    "name": "Urea",
+                    "absolute_min": 1.0,
+                    "absolute_max": 40.0,
+                    "healthy_min": 3.0,
+                    "healthy_max": 8.4,
+                    "value": 12.5,
+                    "interval": 0.1,
+                    "unit": "mmol/L",
+                    "abbreviation": "Urea"
+                },
+                {
+                    "name": "Creatinine (IDMS)",
+                    "absolute_min": 30,
+                    "absolute_max": 800,
+                    "healthy_min": 58,
+                    "healthy_max": 110,
+                    "value": 145,
+                    "interval": 1,
+                    "unit": "µmol/L",
+                    "abbreviation": "Cr"
+                },
+                {
+                    "name": "eGFR",
+                    "absolute_min": 0,
+                    "absolute_max": 120,
+                    "healthy_min": 60,
+                    "healthy_max": 120,
+                    "value": 45,
+                    "interval": 1,
+                    "unit": "mL/min/1.73m2",
+                    "abbreviation": "eGFR"
+                },
+                {
+                    "name": "Anion Gap",
+                    "absolute_min": 0,
+                    "absolute_max": 40,
+                    "healthy_min": 7,
+                    "healthy_max": 20,
+                    "value": 14,
+                    "interval": 0.5,
+                    "unit": "",
+                    "abbreviation": "AG"
+                },
+                {
+                    "name": "Lactate (serum)",
+                    "absolute_min": 0.1,
+                    "absolute_max": 15,
+                    "healthy_min": 0.7,
+                    "healthy_max": 2.1,
+                    "value": 3.8,
+                    "interval": 0.1,
+                    "unit": "mmol/L",
+                    "abbreviation": "Lactate"
+                },
+                {
+                    "name": "C-Reactive Protein",
+                    "absolute_min": 0,
+                    "absolute_max": 500,
+                    "healthy_min": 0,
+                    "healthy_max": 5,
+                    "value": 185,
+                    "interval": 1,
+                    "unit": "mg/L",
+                    "abbreviation": "CRP"
+                },
+                {
+                    "name": "Lipase",
+                    "absolute_min": 0,
+                    "absolute_max": 2000,
+                    "healthy_min": 23,
+                    "healthy_max": 300,
+                    "value": 95,
+                    "interval": 1,
+                    "unit": "U/L",
+                    "abbreviation": "Lipase"
+                },
+                {
+                    "name": "Total Protein",
+                    "absolute_min": 40,
+                    "absolute_max": 100,
+                    "healthy_min": 63,
+                    "healthy_max": 82,
+                    "value": 58,
+                    "interval": 1,
+                    "unit": "g/L",
+                    "abbreviation": "TP"
+                },
+                {
+                    "name": "Albumin",
+                    "absolute_min": 20,
+                    "absolute_max": 60,
+                    "healthy_min": 35,
+                    "healthy_max": 50,
+                    "value": 28,
+                    "interval": 1,
+                    "unit": "g/L",
+                    "abbreviation": "Alb"
+                },
+                {
+                    "name": "AST",
+                    "absolute_min": 0,
+                    "absolute_max": 500,
+                    "healthy_min": 17,
+                    "healthy_max": 59,
+                    "value": 45,
+                    "interval": 1,
+                    "unit": "U/L",
+                    "abbreviation": "AST"
+                },
+                {
+                    "name": "ALT",
+                    "absolute_min": 0,
+                    "absolute_max": 500,
+                    "healthy_min": 21,
+                    "healthy_max": 72,
+                    "value": 52,
+                    "interval": 1,
+                    "unit": "U/L",
+                    "abbreviation": "ALT"
+                },
+                {
+                    "name": "GGT",
+                    "absolute_min": 0,
+                    "absolute_max": 500,
+                    "healthy_min": 15,
+                    "healthy_max": 73,
+                    "value": 68,
+                    "interval": 1,
+                    "unit": "U/L",
+                    "abbreviation": "GGT"
+                },
+                {
+                    "name": "ALP",
+                    "absolute_min": 0,
+                    "absolute_max": 500,
+                    "healthy_min": 38,
+                    "healthy_max": 126,
+                    "value": 95,
+                    "interval": 1,
+                    "unit": "U/L",
+                    "abbreviation": "ALP"
+                },
+                {
+                    "name": "Bilirubin (Total)",
+                    "absolute_min": 0,
+                    "absolute_max": 200,
+                    "healthy_min": 0,
+                    "healthy_max": 21,
+                    "value": 28,
+                    "interval": 1,
+                    "unit": "µmol/L",
+                    "abbreviation": "Bili"
+                },
+                {
+                    "name": "Calcium (uncorrected)",
+                    "absolute_min": 1.5,
+                    "absolute_max": 3.5,
+                    "healthy_min": 2.15,
+                    "healthy_max": 2.65,
+                    "value": 2.05,
+                    "interval": 0.01,
+                    "unit": "mmol/L",
+                    "abbreviation": "Ca"
+                },
+                {
+                    "name": "Calcium (corrected)",
+                    "absolute_min": 1.5,
+                    "absolute_max": 3.5,
+                    "healthy_min": 2.15,
+                    "healthy_max": 2.65,
+                    "value": 2.18,
+                    "interval": 0.01,
+                    "unit": "mmol/L",
+                    "abbreviation": "Ca corr"
+                },
+                {
+                    "name": "Phosphate",
+                    "absolute_min": 0.2,
+                    "absolute_max": 3.0,
+                    "healthy_min": 0.8,
+                    "healthy_max": 1.4,
+                    "value": 1.2,
+                    "interval": 0.01,
+                    "unit": "mmol/L",
+                    "abbreviation": "Phos"
+                },
+                {
+                    "name": "Magnesium",
+                    "absolute_min": 0.2,
+                    "absolute_max": 2.0,
+                    "healthy_min": 0.7,
+                    "healthy_max": 1.1,
+                    "value": 0.8,
+                    "interval": 0.01,
+                    "unit": "mmol/L",
+                    "abbreviation": "Mg"
+                },
+                {
+                    "name": "Urate",
+                    "absolute_min": 100,
+                    "absolute_max": 1000,
+                    "healthy_min": 208,
+                    "healthy_max": 506,
+                    "value": 385,
+                    "interval": 1,
+                    "unit": "µmol/L",
+                    "abbreviation": "Urate"
+                }
+            ]
+        },
+        {
+            "name": "Coagulation Studies",
+            "description": "",
+            "parameters": [
+                {
+                    "name": "International Normalised Ratio",
+                    "absolute_min": 0.5,
+                    "absolute_max": 10.0,
+                    "healthy_min": 0.9,
+                    "healthy_max": 1.2,
+                    "value": 1.4,
+                    "interval": 0.01,
+                    "unit": "",
+                    "abbreviation": "INR"
+                },
+                {
+                    "name": "Activated Partial Thromboplastin Time",
+                    "absolute_min": 10,
+                    "absolute_max": 100,
+                    "healthy_min": 26,
+                    "healthy_max": 38,
+                    "value": 42,
+                    "interval": 0.1,
+                    "unit": "seconds",
+                    "abbreviation": "APTT"
+                },
+                {
+                    "name": "Prothrombin Time",
+                    "absolute_min": 7,
+                    "absolute_max": 50,
+                    "healthy_min": 11,
+                    "healthy_max": 15,
+                    "value": 16.5,
+                    "interval": 0.1,
+                    "unit": "seconds",
+                    "abbreviation": "PT"
+                },
+                {
+                    "name": "Fibrinogen",
+                    "absolute_min": 0.1,
+                    "absolute_max": 10.0,
+                    "healthy_min": 1.5,
+                    "healthy_max": 4.0,
+                    "value": 2.8,
+                    "interval": 0.1,
+                    "unit": "g/L",
+                    "abbreviation": "Fib"
+                },
+                {
+                    "name": "D-Dimer",
+                    "absolute_min": 0,
+                    "absolute_max": 10000,
+                    "healthy_min": 0,
+                    "healthy_max": 500,
+                    "value": 1850,
+                    "interval": 10,
+                    "unit": "ng/mL",
+                    "abbreviation": "D-Dimer"
+                },
+                {
+                    "name": "Benzodiazepines",
+                    "absolute_min": 0,
+                    "absolute_max": 1000,
+                    "healthy_min": 0,
+                    "healthy_max": 0,
+                    "value": 0,
+                    "interval": 1,
+                    "unit": "ng/mL",
+                    "abbreviation": "Benzo"
+                },
+                {
+                    "name": "Opiates",
+                    "absolute_min": 0,
+                    "absolute_max": 1000,
+                    "healthy_min": 0,
+                    "healthy_max": 0,
+                    "value": 0,
+                    "interval": 1,
+                    "unit": "ng/mL",
+                    "abbreviation": "Opiates"
+                },
+                {
+                    "name": "Amphetamines",
+                    "absolute_min": 0,
+                    "absolute_max": 1000,
+                    "healthy_min": 0,
+                    "healthy_max": 0,
+                    "value": 0,
+                    "interval": 1,
+                    "unit": "ng/mL",
+                    "abbreviation": "AMP"
+                },
+                {
+                    "name": "Cocaine",
+                    "absolute_min": 0,
+                    "absolute_max": 1000,
+                    "healthy_min": 0,
+                    "healthy_max": 0,
+                    "value": 0,
+                    "interval": 1,
+                    "unit": "ng/mL",
+                    "abbreviation": "COC"
+                },
+                {
+                    "name": "Tricyclic Antidepressants",
+                    "absolute_min": 0,
+                    "absolute_max": 2000,
+                    "healthy_min": 0,
+                    "healthy_max": 0,
+                    "value": 0,
+                    "interval": 5,
+                    "unit": "ng/mL",
+                    "abbreviation": "TCA"
+                }
+            ]
+        },
+        {
+            "name": "Arterial Blood Gas",
+            "description": "",
+            "parameters": [
+                {
+                    "name": "pH",
+                    "absolute_min": 6.8,
+                    "absolute_max": 7.8,
+                    "healthy_min": 7.35,
+                    "healthy_max": 7.45,
+                    "value": 7.32,
+                    "interval": 0.01,
+                    "unit": "",
+                    "abbreviation": "pH"
+                },
+                {
+                    "name": "pCO2",
+                    "absolute_min": 10,
+                    "absolute_max": 100,
+                    "healthy_min": 35,
+                    "healthy_max": 45,
+                    "value": 32,
+                    "interval": 0.1,
+                    "unit": "mmHg",
+                    "abbreviation": "pCO2"
+                },
+                {
+                    "name": "pO2",
+                    "absolute_min": 20,
+                    "absolute_max": 600,
+                    "healthy_min": 80,
+                    "healthy_max": 100,
+                    "value": 85,
+                    "interval": 0.1,
+                    "unit": "mmHg",
+                    "abbreviation": "pO2"
+                },
+                {
+                    "name": "HCO3-",
+                    "absolute_min": 5,
+                    "absolute_max": 50,
+                    "healthy_min": 22,
+                    "healthy_max": 26,
+                    "value": 16,
+                    "interval": 0.1,
+                    "unit": "mmol / L",
+                    "abbreviation": "HCO3-"
+                },
+                {
+                    "name": "BE(B)",
+                    "absolute_min": -30,
+                    "absolute_max": 30,
+                    "healthy_min": -2,
+                    "healthy_max": 2,
+                    "value": -8,
+                    "interval": 0.1,
+                    "unit": "mmol / L",
+                    "abbreviation": "BE"
+                },
+                {
+                    "name": "Hct",
+                    "absolute_min": 10,
+                    "absolute_max": 70,
+                    "healthy_min": 36,
+                    "healthy_max": 50,
+                    "value": 35,
+                    "interval": 0.1,
+                    "unit": "%",
+                    "abbreviation": "Hct"
+                },
+                {
+                    "name": "tHb",
+                    "absolute_min": 5,
+                    "absolute_max": 25,
+                    "healthy_min": 12,
+                    "healthy_max": 17,
+                    "value": 11.8,
+                    "interval": 0.1,
+                    "unit": "%",
+                    "abbreviation": "tHb"
+                },
+                {
+                    "name": "sO2",
+                    "absolute_min": 0,
+                    "absolute_max": 100,
+                    "healthy_min": 94,
+                    "healthy_max": 100,
+                    "value": 94,
+                    "interval": 0.1,
+                    "unit": "%",
+                    "abbreviation": "sO2"
+                },
+                {
+                    "name": "FO2 Hb",
+                    "absolute_min": 0,
+                    "absolute_max": 100,
+                    "healthy_min": 94,
+                    "healthy_max": 100,
+                    "value": 93,
+                    "interval": 0.1,
+                    "unit": "%",
+                    "abbreviation": "FO2 Hb"
+                },
+                {
+                    "name": "FCO Hb",
+                    "absolute_min": 0,
+                    "absolute_max": 30,
+                    "healthy_min": 0,
+                    "healthy_max": 1.5,
+                    "value": 1.2,
+                    "interval": 0.1,
+                    "unit": "%",
+                    "abbreviation": "FCO Hb"
+                },
+                {
+                    "name": "FMet Hb",
+                    "absolute_min": 0,
+                    "absolute_max": 20,
+                    "healthy_min": 0,
+                    "healthy_max": 1.5,
+                    "value": 1.1,
+                    "interval": 0.1,
+                    "unit": "%",
+                    "abbreviation": "FMet Hb"
+                },
+                {
+                    "name": "FHHb",
+                    "absolute_min": 0,
+                    "absolute_max": 100,
+                    "healthy_min": 0,
+                    "healthy_max": 6,
+                    "value": 4.7,
+                    "interval": 0.1,
+                    "unit": "%",
+                    "abbreviation": "FHHb"
+                },
+                {
+                    "name": "Corrected Temperature",
+                    "absolute_min": 25,
+                    "absolute_max": 45,
+                    "healthy_min": 36.0,
+                    "healthy_max": 37.5,
+                    "value": 38.8,
+                    "interval": 0.1,
+                    "unit": "°C",
+                    "abbreviation": "Corrected Temp"
+                },
+                {
+                    "name": "pH(T)",
+                    "absolute_min": 6.8,
+                    "absolute_max": 7.8,
+                    "healthy_min": 7.35,
+                    "healthy_max": 7.45,
+                    "value": 7.31,
+                    "interval": 0.01,
+                    "unit": "",
+                    "abbreviation": "pH(T)"
+                },
+                {
+                    "name": "pCO2(T)",
+                    "absolute_min": 10,
+                    "absolute_max": 100,
+                    "healthy_min": 35,
+                    "healthy_max": 45,
+                    "value": 31,
+                    "interval": 0.1,
+                    "unit": "mmHg",
+                    "abbreviation": "pCO2(T)"
+                },
+                {
+                    "name": "pO2(T)",
+                    "absolute_min": 20,
+                    "absolute_max": 600,
+                    "healthy_min": 80,
+                    "healthy_max": 100,
+                    "value": 82,
+                    "interval": 0.1,
+                    "unit": "mmHg",
+                    "abbreviation": "pO2(T)"
+                },
+                {
+                    "name": "Na+",
+                    "absolute_min": 100,
+                    "absolute_max": 180,
+                    "healthy_min": 135,
+                    "healthy_max": 145,
+                    "value": 132,
+                    "interval": 0.1,
+                    "unit": "mmol / L",
+                    "abbreviation": "Na+"
+                },
+                {
+                    "name": "K+",
+                    "absolute_min": 1.5,
+                    "absolute_max": 10,
+                    "healthy_min": 3.5,
+                    "healthy_max": 5.0,
+                    "value": 3.8,
+                    "interval": 0.1,
+                    "unit": "mmol / L",
+                    "abbreviation": "K+"
+                },
+                {
+                    "name": "Ca++",
+                    "absolute_min": 0.3,
+                    "absolute_max": 2.0,
+                    "healthy_min": 1.10,
+                    "healthy_max": 1.30,
+                    "value": 1.08,
+                    "interval": 0.01,
+                    "unit": "mmol / L",
+                    "abbreviation": "Ca++"
+                },
+                {
+                    "name": "Cl-",
+                    "absolute_min": 70,
+                    "absolute_max": 130,
+                    "healthy_min": 98,
+                    "healthy_max": 107,
+                    "value": 98,
+                    "interval": 0.1,
+                    "unit": "mmol / L",
+                    "abbreviation": "Cl-"
+                },
+                {
+                    "name": "Glu",
+                    "absolute_min": 1,
+                    "absolute_max": 60,
+                    "healthy_min": 3.5,
+                    "healthy_max": 7.8,
+                    "value": 8.5,
+                    "interval": 0.1,
+                    "unit": "mmol / L",
+                    "abbreviation": "Glu"
+                },
+                {
+                    "name": "Lac",
+                    "absolute_min": 0,
+                    "absolute_max": 20,
+                    "healthy_min": 0.5,
+                    "healthy_max": 2.2,
+                    "value": 3.8,
+                    "interval": 0.1,
+                    "unit": "mmol / L",
+                    "abbreviation": "Lac"
+                },
+                {
+                    "name": "Temperature",
+                    "absolute_min": 25,
+                    "absolute_max": 45,
+                    "healthy_min": 36.0,
+                    "healthy_max": 37.5,
+                    "value": 38.8,
+                    "interval": 0.1,
+                    "unit": "°C",
+                    "abbreviation": "Temp"
+                }
+            ]
+        },
+        {
+            "name": "Blood Cultures",
+            "description": "",
+            "parameters": [
+                {
+                    "name": "Blood Culture Result",
+                    "absolute_min": 0,
+                    "absolute_max": 1,
+                    "healthy_min": 0,
+                    "healthy_max": 0,
+                    "value": 1,
+                    "interval": 1,
+                    "unit": "",
+                    "abbreviation": "BC"
+                }
+            ]
+        }
+    ],
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 50,
+    "scenarioState": 0,
+    "studentInfo": {
+        "studentName": "",
+        "studentNumber": "",
+        "studentEmail": ""
+    }
+}

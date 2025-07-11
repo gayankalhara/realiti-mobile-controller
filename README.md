@@ -1,69 +1,83 @@
-# React + TypeScript + Vite
+# REALITi Mobile Scenario Controller
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mobile-first React application for controlling medical simulation scenarios. This prototype allows facilitators to navigate through scenario events with an intuitive, touch-optimized interface.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Scenario Overview**: Display scenario name and description
+- **Event Navigation**: Sequential navigation through scenario events
+- **Active Event Indication**: Clear visual indication of current active event
+- **Direct Event Access**: Tap any event to jump directly to it
+- **Mobile-Optimized**: Responsive design for phones and tablets
+- **Touch-Friendly**: Large buttons and touch targets for easy interaction
 
-## Expanding the ESLint configuration
+## Setup Instructions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. **Start development server**:
+   ```bash
+   npm run dev
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+3. **Build for production**:
+   ```bash
+   npm run build
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Component Structure
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- `App.tsx` - Main application component with state management
+- `Header.tsx` - Scenario name display
+- `ScenarioInfo.tsx` - Scenario overview card
+- `EventList.tsx` - Container for event cards
+- `EventCard.tsx` - Individual event display with vital signs
+- `Controls.tsx` - Navigation controls
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Data Structure
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The application consumes `src/json/exampleScenario.json` which includes:
+- Scenario metadata (name, overview, etc.)
+- Array of scenario events with vital signs parameters
+- Each event contains description and vital signs (HR, BP, SpO2, RR, Temp)
+
+## Key Features Implementation
+
+### State Management
+- `activeEventIndex` tracks current active event (starts at 0)
+- Event navigation updates this index
+- First event is active by default
+
+### Navigation
+- **Next Event Button**: Advances to next event sequentially
+- **Direct Event Access**: Tap any event card to activate it
+- **Boundary Handling**: Button becomes disabled/changes text at final event
+
+### Mobile Optimization
+- Responsive grid layout for vital signs
+- Touch-friendly button sizing (minimum 44px)
+- Smooth scrolling with momentum on iOS
+- Optimized font sizes for different screen sizes
+
+## Browser Support
+
+- Modern browsers with ES6+ support
+- iOS Safari 12+
+- Android Chrome 70+
+- Responsive design works on devices from 320px to 1200px width
+
+## Development Notes
+
+Built with:
+- React 18 + TypeScript
+- Vite build tool
+- CSS custom properties for theming
+- Mobile-first responsive design
+- Accessibility considerations (focus states, reduced motion support)
+
+## Development Process & Design Decisions
+
+his project was developed with the help of Gemini 2.5 Pro and Claude Sonnet 4. I used the original color scheme of the REALITi application and aimed to maintain the same aesthetics. 
