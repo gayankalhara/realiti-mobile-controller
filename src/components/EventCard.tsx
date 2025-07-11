@@ -12,9 +12,10 @@ interface EventCardProps {
   };
   isActive: boolean;
   onClick: () => void;
+  stepNumber: number;
 }
 
-const EventCard = ({ event, isActive, onClick }: EventCardProps) => {
+const EventCard = ({ event, isActive, onClick, stepNumber }: EventCardProps) => {
   const { description, parameters } = event;
   
   return (
@@ -22,7 +23,10 @@ const EventCard = ({ event, isActive, onClick }: EventCardProps) => {
       className={`event-card ${isActive ? 'active' : ''}`}
       onClick={onClick}
     >
-      <h3 className="event-title">{description}</h3>
+      <div className="event-header">
+        <div className="step-number">{stepNumber}</div>
+        <h3 className="event-title">{description}</h3>
+      </div>
       <div className="vital-signs">
         <div className="vital-sign">
           <span className="vital-label">HR:</span>
