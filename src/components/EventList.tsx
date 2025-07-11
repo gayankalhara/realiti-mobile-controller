@@ -26,8 +26,6 @@ const EventList = ({ events, activeEventIndex, onEventClick }: EventListProps) =
     if (eventRefs.current[activeEventIndex]) {
       const activeElement = eventRefs.current[activeEventIndex];
       
-      console.log('Scrolling to event:', activeEventIndex);
-      console.log('Active element:', activeElement);
       
       // Small delay to ensure DOM is fully rendered
       setTimeout(() => {

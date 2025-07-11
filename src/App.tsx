@@ -24,7 +24,17 @@ function App() {
 
   return (
     <div className="app">
-      <Header scenarioName={scenario.scenarioName} />
+      <Header 
+        scenarioName={scenario.scenarioName} 
+        scenarioData={{
+          scenarioType: scenario.scenarioType,
+          scenarioTime: scenario.scenarioTime,
+          purpose: scenario.purpose,
+          learning_objectives: scenario.learning_objectives,
+          required_simulation_tools: scenario.required_simulation_tools,
+          intended_participants: scenario.intended_participants
+        }}
+      />
       <ScenarioInfo scenarioOverview={scenario.scenario_overview} />
       <EventList 
         events={scenario.scenarioEvents}
