@@ -1,3 +1,5 @@
+import {IoCheckmarkOutline, IoChevronForwardOutline} from 'react-icons/io5';
+
 interface ControlsProps {
   onNextEvent: () => void;
   isLastEvent: boolean;
@@ -11,7 +13,17 @@ const Controls = ({ onNextEvent, isLastEvent }: ControlsProps) => {
         onClick={onNextEvent}
         disabled={isLastEvent}
       >
-        {isLastEvent ? 'Final Event' : 'Next Event'}
+        {isLastEvent ? (
+          <>
+            Final Event
+            <IoCheckmarkOutline className="btn-icon" />
+          </>
+        ) : (
+          <>
+            Next Event
+            <IoChevronForwardOutline className="btn-icon" />
+          </>
+        )}
       </button>
     </div>
   );

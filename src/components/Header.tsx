@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { IoChevronDown, IoTime } from 'react-icons/io5';
 
 interface HeaderProps {
   scenarioName: string;
@@ -28,9 +29,7 @@ const Header = ({ scenarioName, scenarioData }: HeaderProps) => {
           onClick={toggleExpanded}
           aria-label="Toggle scenario details"
         >
-          <div className={`info-icon ${isExpanded ? 'expanded' : ''}`}>
-            ℹ️
-          </div>
+          <IoChevronDown className={`info-icon ${isExpanded ? 'expanded' : ''}`} />
         </button>
       </div>
       
@@ -43,7 +42,10 @@ const Header = ({ scenarioName, scenarioData }: HeaderProps) => {
             </div>
             <div className="detail-item">
               <span className="detail-label">Duration:</span>
-              <span className="detail-value">{scenarioData.scenarioTime} mins</span>
+              <span className="detail-value">
+                <IoTime className="detail-icon" />
+                {Math.round(scenarioData.scenarioTime / 60)} mins
+              </span>
             </div>
           </div>
           
